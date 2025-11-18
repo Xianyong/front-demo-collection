@@ -19,12 +19,15 @@ import Vue3DataBinding from './components/DataBinding/Vue3DataBinding.vue'
 import Vue3DataBinding1 from './components/DataBinding/Vue3DataBinding1.vue'
 import Vue3DataBinding2 from './components/DataBinding/Vue3DataBinding2.vue'
 
+import PureTable from './components/DataTable/PureTable.vue'
+
 const routes = [
   { path: '/', component: Vue2DataBinding },
   { path: '/Vue2DataBindingExp', component: Vue2DataBindingExp },
   { path: '/Vue3DataBinding', component: Vue3DataBinding },
   { path: '/Vue3DataBinding1', component: Vue3DataBinding1 },
-  { path: '/Vue3DataBinding2', component: Vue3DataBinding2 }
+  { path: '/Vue3DataBinding2', component: Vue3DataBinding2 },
+  { path: '/PureTable', component: PureTable }
 ]
 
 const router = createRouter({

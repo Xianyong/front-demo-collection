@@ -7,6 +7,8 @@
       <router-link to="/Vue3DataBinding">Vue3DataBinding</router-link>
       <router-link to="/Vue3DataBinding1">Vue3DataBinding1</router-link>
       <router-link to="/Vue3DataBinding2">Vue3DataBinding2</router-link>
+      <hr class="divider" />
+      <router-link to="/PureTable">PureTable</router-link>
     </nav>
     <main id="app">
       <router-view></router-view>
