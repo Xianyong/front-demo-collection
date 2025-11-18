@@ -62,7 +62,7 @@
       <div class="form-group">
         <label>添加新技术 (New Skills):</label>
         <input type="text" v-model="userInfo.newSkill" class="form-control"></input> 
-        <button @click="userInfo.skills.push(userInfo.newSkill)" class="btn btn-primary">添加</button>
+        <button @click="addSkill" class="btn btn-primary">添加</button>
       </div>
       
       <div class="info-summary">
@@ -73,50 +73,50 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  name: 'Vue2DataBinding',
-  data() {
-    return {
-      userName: "王一",
-      salary: 15000,
-      userInfo: {
-        age: 18,
-        sex: "1", // Changed to string to match radio values
-        department: 'dev',
-        skills: ['HTML', 'CSS', 'JavaScript'],
-        newSkill:""
+<script setup lang="ts">
+  import { ref, reactive, computed } from 'vue';
+
+  const userName = ref("王一");
+  const salary = ref(15000);
+
+  const userInfo = reactive({
+    age: 18,
+    sex: "1",
+    department: 'dev',
+    skills: ['HTML', 'CSS', 'JavaScript'],
+    newSkill: ""
+  });
+
+  const formattedUserInfo = computed(() => {
+    return JSON.stringify(userInfo, null, 2);
+  });
+
+  const addSalary = () => {
+    try {
+      if (typeof salary.value !== 'number' || isNaN(salary.value)) {
+        console.error('Invalid salary value');
+        return;
       }
-    }
-  },
-  computed: {
-    formattedUserInfo() {
-      return JSON.stringify(this.userInfo, null, 2);
-    }
-  },
-  methods: {
-    addSalary() {
-      try {
-        // Validate that salary is a number
-        if (typeof this.salary !== 'number' || isNaN(this.salary)) {
-          console.error('Invalid salary value');
-          return;
-        }
-        
-        // Check for potential overflow (JavaScript safe integer limit)
-        if (this.salary > Number.MAX_SAFE_INTEGER - 1000) {
-          console.error('Salary would exceed maximum safe integer value');
-          return;
-        }
-        
-        this.salary += 1000;
-      } catch (error) {
-        console.error('Error occurred while adding salary:', error);
+
+      if (salary.value > Number.MAX_SAFE_INTEGER - 1000) {
+        console.error('Salary would exceed maximum safe integer value');
+        return;
       }
+
+      salary.value += 1000;
+    } catch (error) {
+      console.error('Error occurred while adding salary:', error);
     }
-  }
-}
-</script>
+  };
+
+  const addSkill = () => {
+    if (userInfo.newSkill.trim()) {
+      userInfo.skills.push(userInfo.newSkill.trim());
+      userInfo.newSkill = ""; // Clear input after adding
+    }
+  };
+
+  </script>
 
 <style scoped>
 .data-binding-container {

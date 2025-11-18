@@ -1,61 +1,61 @@
+<template>
+  <div class="container">
+    <nav id="navigator">
+      <router-link to="/">Vue2DataBinding</router-link>
+      <router-link to="/Vue2DataBindingExp">Vue2DataBindingExp</router-link>
+      <hr class="divider" />
+      <router-link to="/Vue3DataBinding">Vue3DataBinding</router-link>
+      <router-link to="/Vue3DataBinding1">Vue3DataBinding1</router-link>
+      <router-link to="/Vue3DataBinding2">Vue3DataBinding2</router-link>
+    </nav>
+    <main id="app">
+      <router-view></router-view>
+    </main>
+  </div>
+</template>
+
 <script>
-  export default {
-    data()
-    {
-      return {
-        username: 'name',
-        msg: 'Hello Vue 3 + Vite!',
-        age:25
-      }
-    },
-    methods:{
-      changeName()
-      {
-        this.username = 'new name';
-      }
-    }
+export default {
+  name: 'App'
 }
 </script>
 
-<template>
-  <main>
-    <h1>{{msg}}</h1>
-    <p>
-      <label for="username">Username:</label>
-      <input id="username" v-model="username">{{username}}
-      <br />
-      <label for="userage">Age:</label>
-      <input id="userage" type="number" v-model.number="age" placeholder="Enter your age"> {{age}}
-    </p>
-    <p>
-      <button @click="changeName()">Clear</button>
-    </p>
-    
-    <!-- {{msg}} -->
-  </main>
-  <footer>
-    &copy; 2025, name
-  </footer>
-</template>
-
-<style scoped>
-h1 {
-  font-weight:bold;
-  text-align:center;
-  color:#42b983;
-  font-size: 2em;
-  /* width: ; */
-  position: fixed;
-  top: 0;
+<style>
+body {
+  margin: 0;
+  padding: 0;
 }
 
-/* STEP 2: Style the footer */
-footer {
-  position: fixed;
-  bottom: 0;
-  left:0;
-  width:100;
-  text-align:center;
-  width: 100%;
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+#navigator {
+  width: 200px;
+  background-color: #f0f0f0;
+  padding: 20px 0;
+}
+
+#app {
+  flex: 1;
+  padding: 20px;
+}
+
+#navigator a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+#navigator a:hover {
+  background-color: #ddd;
+}
+
+/* Active link styling */
+.router-link-active {
+  background-color: #ddd;
+  font-weight: bold;
 }
 </style>

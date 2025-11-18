@@ -74,49 +74,61 @@
 </template>
 
 <script lang="ts">
-export default {
-  name: 'Vue2DataBinding',
-  data() {
-    return {
-      userName: "王一",
-      salary: 15000,
-      userInfo: {
+  import { defineComponent, ref, reactive, computed } from 'vue';
+  
+  export default defineComponent({
+    setup() {
+      const userName = ref("王一");
+      const salary = ref(15000);
+  
+      const userInfo = reactive({
         age: 18,
-        sex: "1", // Changed to string to match radio values
+        sex: "1",
         department: 'dev',
         skills: ['HTML', 'CSS', 'JavaScript'],
-        newSkill:""
-      }
-    }
-  },
-  computed: {
-    formattedUserInfo() {
-      return JSON.stringify(this.userInfo, null, 2);
-    }
-  },
-  methods: {
-    addSalary() {
-      try {
-        // Validate that salary is a number
-        if (typeof this.salary !== 'number' || isNaN(this.salary)) {
-          console.error('Invalid salary value');
-          return;
+        newSkill: ""
+      });
+  
+      const formattedUserInfo = computed(() => {
+        return JSON.stringify(userInfo, null, 2);
+      });
+  
+      const addSalary = () => {
+        try {
+          if (typeof salary.value !== 'number' || isNaN(salary.value)) {
+            console.error('Invalid salary value');
+            return;
+          }
+  
+          if (salary.value > Number.MAX_SAFE_INTEGER - 1000) {
+            console.error('Salary would exceed maximum safe integer value');
+            return;
+          }
+  
+          salary.value += 1000;
+        } catch (error) {
+          console.error('Error occurred while adding salary:', error);
         }
-        
-        // Check for potential overflow (JavaScript safe integer limit)
-        if (this.salary > Number.MAX_SAFE_INTEGER - 1000) {
-          console.error('Salary would exceed maximum safe integer value');
-          return;
+      };
+  
+      const addSkill = () => {
+        if (userInfo.newSkill.trim()) {
+          userInfo.skills.push(userInfo.newSkill.trim());
+          userInfo.newSkill = ""; // Clear input after adding
         }
-        
-        this.salary += 1000;
-      } catch (error) {
-        console.error('Error occurred while adding salary:', error);
-      }
+      };
+  
+      return {
+        userName,
+        salary,
+        userInfo,
+        formattedUserInfo,
+        addSalary,
+        addSkill
+      };
     }
-  }
-}
-</script>
+  });
+  </script>
 
 <style scoped>
 .data-binding-container {
