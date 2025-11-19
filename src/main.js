@@ -20,6 +20,10 @@ import Vue3DataBinding1 from './components/DataBinding/Vue3DataBinding1.vue'
 import Vue3DataBinding2 from './components/DataBinding/Vue3DataBinding2.vue'
 
 import PureTable from './components/DataTable/PureTable.vue'
+import DynamicTable from './components/DataTable/DynamicTable.vue'
+import DynamicTable2 from './components/DataTable/DynamicTable2.vue'
+
+import ElementUITable from './components/DataTable/ElementUITable.vue'
 
 const routes = [
   { path: '/', component: Vue2DataBinding },
@@ -27,7 +31,10 @@ const routes = [
   { path: '/Vue3DataBinding', component: Vue3DataBinding },
   { path: '/Vue3DataBinding1', component: Vue3DataBinding1 },
   { path: '/Vue3DataBinding2', component: Vue3DataBinding2 },
-  { path: '/PureTable', component: PureTable }
+  { path: '/PureTable', component: PureTable },
+  { path: '/DynamicTable', component: DynamicTable },
+  { path: '/DynamicTable2', component: DynamicTable2 },
+  { path: '/ElementUITable', component: ElementUITable }
 ]
 
 const router = createRouter({

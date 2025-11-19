@@ -9,10 +9,16 @@
       <router-link to="/Vue3DataBinding2">Vue3DataBinding2</router-link>
       <hr class="divider" />
       <router-link to="/PureTable">PureTable</router-link>
+      <router-link to="/DynamicTable">DynamicTable</router-link>
+      <router-link to="/DynamicTable2">DynamicTable2</router-link>
+      <hr class="divider" />
+      <router-link to="/ElementUITable">ElementUITable</router-link>
+      
     </nav>
     <main id="app">
       <router-view></router-view>
     </main>
+    <el-button type="primary" @click="handleClick">Primary</el-button>
   </div>
 </template>
 
