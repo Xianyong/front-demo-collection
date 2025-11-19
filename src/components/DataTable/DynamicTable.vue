@@ -2,7 +2,6 @@
 <script setup lang="ts">
   import DemoGrid from './Grid.vue'
   import GoodsAPI, { GoodsVO } from '@/api/goods.api';
-  import { setAccessToken } from '@/utils/auth';
   import { onMounted, ref } from 'vue'
 
   const goodsList = ref<GoodsVO[]>();
@@ -11,8 +10,7 @@
   const gridColumns = ['name', 'category', 'madeAddress', 'price', 'orderCount']
   const gridData = ref([])
 
-  setAccessToken('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImRlcHRJZCI6MSwiZGF0YVNjb3BlIjoxLCJ0b2tlblR5cGUiOmZhbHNlLCJleHAiOjE3NjM1NjY1NDcsInVzZXJJZCI6MiwiaWF0IjoxNzYzNTU5MzQ3LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6IjQ4YjljZjZjM2QxNDQ4MWM5YjU5YTE0MzU4ZTIyYzQwIn0.SPKM6gU1r3bdEIZZw5z-xAPlKkDZzeBi3iOrwvK8--E');
-
+  
   // Query department
   function handleQuery() {
     loading.value = true;

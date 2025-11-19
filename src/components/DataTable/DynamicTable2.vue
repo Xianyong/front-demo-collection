@@ -8,9 +8,6 @@ const goodsList = ref<GoodsVO[]>([]);
 const loading = ref(false)
 const searchQuery = ref('')
 
-// Set access token
-setAccessToken('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImRlcHRJZCI6MSwiZGF0YVNjb3BlIjoxLCJ0b2tlblR5cGUiOmZhbHNlLCJleHAiOjE3NjM1NjY1NDcsInVzZXJJZCI6MiwiaWF0IjoxNzYzNTU5MzQ3LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6IjQ4YjljZjZjM2QxNDQ4MWM5YjU5YTE0MzU4ZTIyYzQwIn0.SPKM6gU1r3bdEIZZw5z-xAPlKkDZzeBi3iOrwvK8--E');
-
 // Grid configuration
 const gridColumns = ['name', 'category', 'madeAddress', 'price', 'orderCount']
 

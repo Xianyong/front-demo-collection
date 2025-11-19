@@ -1,14 +1,7 @@
 // import './assets/main.css'
+// import 'element-plus/dist/index.css'
 
-// import { createApp } from 'vue'
-
-// import App from './App.vue'
-
-// import vue2DataBinding from './components/DataBinding/Vue2DataBinding.vue'
-// import Vue2DataBindingExp from './components/DataBinding/Vue2DataBindingExp.vue'
-// import vue3DataBinding from './components/DataBinding/Vue3DataBinding.vue'
-
-// createApp(vue3DataBinding).mount('#app')
+import { setAccessToken } from '@/utils/auth';
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
@@ -41,5 +34,8 @@ const router = createRouter({
   history: createWebHistory(),
   routes
 })
+
+// just for Testing, hard code the token here.
+setAccessToken('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImRlcHRJZCI6MSwiZGF0YVNjb3BlIjoxLCJ0b2tlblR5cGUiOmZhbHNlLCJleHAiOjE3NjM1NzU1MzMsInVzZXJJZCI6MiwiaWF0IjoxNzYzNTY4MzMzLCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6IjEwYjFjMGIzZjJiMDRhYjJhMTE0NmFlY2E1NDMxNTU5In0.F3y0Msf-u8ivXbk1emRH3EpTka8kEbnA3-IWE-tdmbo');
 
 createApp(App).use(router).mount('#app')
